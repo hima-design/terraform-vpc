@@ -18,34 +18,34 @@ locals {
         {
           name              = "dev_pub_subnet",
           cidr_block        = "10.10.10.0/24",
-          availability_zone = "ap-south-1b",
+          availability_zone = "eu-central-1b",
         }
       ]
       private_subnets = [
         {
           name              = "dev_priv_subnet",
           cidr_block        = "10.10.20.128/25",
-          availability_zone = "ap-south-1b",
+          availability_zone = "eu-central-1b",
         },
         {
           name              = "dev_priv_subnet_a",
           cidr_block        = "10.10.20.0/28",
-          availability_zone = "ap-south-1b",
+          availability_zone = "eu-central-1b",
         },
         {
           name              = "dev_priv_subnet_b",
           cidr_block        = "10.10.20.64/28",
-          availability_zone = "ap-south-1c",
+          availability_zone = "eu-central-1c",
         },
         {
           name              = "dev_priv_subnet_a_autoscale",  # new bigger group for autoscaling jobs
           cidr_block        = "10.10.81.0/24",
-          availability_zone = "ap-south-1a",
+          availability_zone = "eu-central-1a",
         },
         {
           name              = "dev_priv_subnet_b_autoscale",
           cidr_block        = "10.10.82.0/24",
-          availability_zone = "ap-south-1b",
+          availability_zone = "eu-central-1b",
         }
       ]
 
@@ -56,7 +56,7 @@ locals {
         "OrgID"       = "A4025821"
         "OrgName"     = "Digital Business"
         "Project"     = "mda_fm_dev"
-        "Region"      = "ap-south-1"
+        "Region"      = "eu-central-1"
         "Terraform"   = true
       }
     }
@@ -68,7 +68,7 @@ locals {
 # ----------------------------------------------------------------------------------------------------------------------
 
 module "vpc" {
-  source = "git@code.siemens.com:mda_ops/mda_ops_terraform_modules/terraform-mda-ops-aws-vpc.git?ref=release-v2.0.0"
+  source = "git@github.com:hima-design/Terraform_VPC.git?ref=release-v2.0.0"
 
   vpc_cidr_block           = local.env.dev.vpc_cidr_block
   vpc_enable_dns_support   = local.env.dev.vpc_enable_dns_support
